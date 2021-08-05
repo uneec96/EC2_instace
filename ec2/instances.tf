@@ -13,11 +13,20 @@ resource "aws_ebs_volume" "example" {
   size              = 8
 }
 
-resource "aws_volume_attachment" "ebs_att" {
+resource "aws_volume_attachment" "ebs_att1" {
   device_name = "/dev/sdh"
   volume_id   = "${aws_ebs_volume.example.id}"
   instance_id = "${aws_instance.web1[0].id}"
   instance_id = "${aws_instance.web1[1].id}"
   instance_id = "${aws_instance.web1[2].id}"
 }
-
+resource "aws_volume_attachment" "ebs_att2" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.example.id}"
+  instance_id = "${aws_instance.web1[1].id}"
+}
+resource "aws_volume_attachment" "ebs_att3" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.example.id}"
+  instance_id = "${aws_instance.web1[2].id}"
+}
