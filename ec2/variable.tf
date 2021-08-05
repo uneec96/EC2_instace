@@ -12,5 +12,5 @@ variable "instance_type" {
 }
 
 variable "instance_count" {
-  default = "2"
+  default = "3"
 }
