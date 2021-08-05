@@ -1,4 +1,4 @@
-resource "aws_instance" "web" {
+resource "aws_instance" "web1" {
   count          = var.instance_count
   ami            = var.ami
   instance_type  = var.instance_type
@@ -16,6 +16,6 @@ resource "aws_ebs_volume" "example" {
 resource "aws_volume_attachment" "ebs_att" {
   device_name = "/dev/sdh"
   volume_id   = "${aws_ebs_volume.example.id}"
-  instance_id = "${aws_instance.web[0].id}"
+  instance_id = "${aws_instance.web1[0].id}"
 }
 
